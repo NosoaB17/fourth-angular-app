@@ -1,0 +1,31 @@
+<!-- <div *ngFor="let author of authors">
+  <span> {{ author.id }} - {{ author.firstName }}_{{ author.lastName }}</span>
+</div> -->
+
+<!-- <div *ngFor="let author of authors; index as idx; count as total">
+  {{ idx }}/{{ total }}: {{ author.id }} - {{ author.firstName }}
+  {{ author.lastName }}
+</div> -->
+
+<!-- Use ng-template -->
+<ng-template
+  ngFor
+  [ngForOf]="authors"
+  let-author
+  let-idx="index"
+  let-total="count"
+>
+  <div>
+    {{ idx }} / {{ total }} : {{ author.id }} - {{ author.firstName }}
+    {{ author.lastName }}
+  </div>
+</ng-template>
+
+<div
+  *ngFor="let author of authors"
+  [style.width.px]="100"
+  [style.height.px]="100"
+>
+  <!--CSS Style Binding-->
+  {{ author.ipAddress }}
+</div>

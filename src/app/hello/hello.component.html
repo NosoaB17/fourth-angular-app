@@ -1,0 +1,33 @@
+<div>
+  <h1>Double Check</h1>
+  <h2>{{ user.name }}</h2>
+  <!--Interpolation-->
+  <h3>{{ user.age }}</h3>
+  <!--Interpolation-->
+  <p>{{ user.email }}</p>
+</div>
+<div>
+  <input type="text" [value]="user.email" />
+  <!--Property Binding HTML-->
+  <button (click)="showUserInfo()">Click me!</button>
+  <!--Event Binding HTML-->
+  <span>Name:</span>
+  <input type="text" [(ngModel)]="user.name" />
+  <span>Age:</span>
+  <input type="text" [(ngModel)]="user.age" />
+  <span>Email:</span>
+  <input type="text" [(ngModel)]="user.email" />
+  <!--Two-way Binding-->
+</div>
+<div>
+  <span *ngIf="user.age >= 18">You can watch adult contents.</span>
+  <span *ngIf="user.age < 18">You can NOT watch adult contents.</span>
+  <!--If-Else with ngIf-->
+  <ng-template [ngIf]="user.age >= 13" [ngIfElse]="noPG13">
+    <div>Bạn có thể xem nội dung PG-13</div>
+  </ng-template>
+  <ng-template #noPG13>
+    <div>Bạn không thể xem nội dung PG-13</div>
+  </ng-template>
+  <!--If-else with ngTemplate-->
+</div>
